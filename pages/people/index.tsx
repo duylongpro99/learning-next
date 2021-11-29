@@ -17,7 +17,9 @@ export default function Pepole(props: ComponentProps) {
     return (<div>
         {props && props.people && props.people[0].map((person) => {
             return (
-                <p key={person.id}>{person.firstName + ' ' + person.lastName}</p>
+                <div key={person.id}>
+                    <a>{person.firstName + ' ' + person.lastName}</a>
+                </div>
             );
         })}
     </div>);
