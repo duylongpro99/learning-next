@@ -1,5 +1,6 @@
 import path from "path";
 import { promises as fs } from "fs";
+import Link from "next/link";
 
 export type People = {
     id: number;
@@ -18,7 +19,7 @@ export default function Pepole(props: ComponentProps) {
         {props && props.people && props.people[0].map((person) => {
             return (
                 <div key={person.id}>
-                    <a>{person.firstName + ' ' + person.lastName}</a>
+                    <Link href={`/person/${person.id}`}>{person.firstName + ' ' + person.lastName}</Link>
                 </div>
             );
         })}
