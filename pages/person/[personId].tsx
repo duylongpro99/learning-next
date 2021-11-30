@@ -4,6 +4,7 @@ import { ComponentProps, People } from "../people";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import styles from './person.module.css';
+import variables from '../../styles/_ variables.module.scss';
 
 export default function Person (props: ComponentProps) {
     const  [person, setPersion] = useState<People | null>();
@@ -17,10 +18,10 @@ export default function Person (props: ComponentProps) {
     }, [person]);
     return (        
         <div>
-            <h2>{person?.firstName}</h2>
+            <h2 style={{color: variables.primaryColor}}>{person?.firstName}</h2>
             <h2>{person?.lastName}</h2>
             <h2 className={styles.age}>{person?.age}</h2>
-            <h2>Hello, this is next app</h2>
+            <h2>Hello</h2>
         </div>
     );
 }
