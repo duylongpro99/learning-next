@@ -9,7 +9,7 @@ export type People = {
     age: number;
 }
 
-type ComponentProps = {
+export type ComponentProps = {
     people: People[][];
 }
 
