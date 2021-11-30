@@ -3,6 +3,7 @@ import { promises as fs } from "fs";
 import { ComponentProps, People } from "../people";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
+import styles from './person.module.css';
 
 export default function Person (props: ComponentProps) {
     const  [person, setPersion] = useState<People | null>();
@@ -10,7 +11,7 @@ export default function Person (props: ComponentProps) {
     useEffect(() => {
         const people = props.people[0]; 
         if (props.people[0].length && router.query.personId) {
-            const person = people.find(p => p.id === Number(router.query.personId));
+            const person = people.find((p: People) => p.id === Number(router.query.personId));
             setPersion(person);
         }
     }, [person]);
@@ -18,7 +19,7 @@ export default function Person (props: ComponentProps) {
         <div>
             <h2>{person?.firstName}</h2>
             <h2>{person?.lastName}</h2>
-            <h2>{person?.age}</h2>
+            <h2 className={styles.age}>{person?.age}</h2>
             <h2>Hello, this is next app</h2>
         </div>
     );
